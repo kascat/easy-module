@@ -5,6 +5,7 @@
     "homepage": "https://github.com/kascat",
     "type": "library",
     "license": "MIT",
+    "version": "1.0",
     "authors": [
         {
             "name": "Fabio Dukievicz",
