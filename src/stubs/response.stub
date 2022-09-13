@@ -2,6 +2,8 @@
 
 namespace {{modelNamePlural}};
 
+use Kascat\EasyModule\Core\Response;
+
 /**
  * Response interceptor
  *
@@ -10,6 +12,8 @@ namespace {{modelNamePlural}};
  */
 trait {{modelName}}Response
 {
+    use Response;
+
     /**
      * @param mixed $data
      * @param int $statusCode
