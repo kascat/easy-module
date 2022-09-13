@@ -1,0 +1,21 @@
+<?php
+
+namespace {{modelNamePlural}};
+
+/**
+ * Class {{modelName}}Repository
+ * @package {{modelNamePlural}}
+ *
+ * Build module query here.
+ */
+class {{modelName}}Repository
+{
+    /**
+     * @param $filters
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function index($filters)
+    {
+        return {{modelName}}::query();
+    }
+}

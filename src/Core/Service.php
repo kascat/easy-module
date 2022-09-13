@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright by Fabio Dukievicz <fabiojd47@gmail.com>
+ * Licensed under MIT
+ */
 
 namespace Kascat\EasyModule\Core;
 
@@ -22,7 +26,7 @@ class Service
     {
         return [
             'response' => $response,
-            'status' => $statusCode
+            'status'   => $statusCode
         ];
     }
 }

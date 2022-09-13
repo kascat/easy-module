@@ -1,0 +1,9 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::group([
+    // 'middleware' => ['auth:sanctum']
+], function () {
+    Route::apiResource('{{modelNamePluralLowerCase}}', {{modelNamePlural}}\{{modelName}}Controller::class);
+});

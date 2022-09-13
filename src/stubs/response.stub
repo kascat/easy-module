@@ -1,0 +1,22 @@
+<?php
+
+namespace {{modelNamePlural}};
+
+/**
+ * Response interceptor
+ *
+ * Trait {{modelName}}Response
+ * @package {{modelNamePlural}}
+ */
+trait {{modelName}}Response
+{
+    /**
+     * @param mixed $data
+     * @param int $statusCode
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function responseToIndex($data = [], int $statusCode = 200)
+    {
+        return response()->json($data, $statusCode);
+    }
+}

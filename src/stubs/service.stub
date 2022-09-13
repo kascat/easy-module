@@ -1,0 +1,74 @@
+<?php
+
+namespace {{modelNamePlural}};
+
+use Kascat\EasyModule\Core\Service;
+
+/**
+ * Class {{modelName}}Service
+ * @package {{modelNamePlural}}
+ */
+class {{modelName}}Service extends Service
+{
+    /**
+     * @param array $filters
+     * @return array
+     */
+    public function index(array $filters): array
+    {
+        ${{modelNamePluralLowerCase}}Query = {{modelName}}Repository::index($filters);
+
+        return self::buildReturn(
+            ${{modelNamePluralLowerCase}}Query
+                ->with(\request()->with ?? [])
+                ->paginate(\request()->perPage)
+        );
+    }
+
+    /**
+     * @param {{modelName}} ${{modelNameSingularLowerCase}}
+     * @return array
+     */
+    public function show({{modelName}} ${{modelNameSingularLowerCase}}): array
+    {
+        return self::buildReturn(
+            ${{modelNameSingularLowerCase}}
+                ->load(\request('with') ?? [])
+                ->toArray()
+        );
+    }
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function store(array $data): array
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::create($data);
+
+        return self::buildReturn(${{modelNameSingularLowerCase}});
+    }
+
+    /**
+     * @param {{modelName}} ${{modelNameSingularLowerCase}}
+     * @param array $data
+     * @return array
+     */
+    public function update({{modelName}} ${{modelNameSingularLowerCase}}, array $data): array
+    {
+        ${{modelNameSingularLowerCase}}->update($data);
+
+        return self::buildReturn(${{modelNameSingularLowerCase}});
+    }
+
+    /**
+     * @param {{modelName}} ${{modelNameSingularLowerCase}}
+     * @return array
+     */
+    public function destroy({{modelName}} ${{modelNameSingularLowerCase}}): array
+    {
+        ${{modelNameSingularLowerCase}}->delete();
+
+        return self::buildReturn();
+    }
+}

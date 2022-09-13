@@ -1,0 +1,45 @@
+<?php
+
+namespace {{modelNamePlural}};
+
+use Kascat\EasyModule\Core\Request;
+
+/**
+ * Class {{modelName}}Request
+ * @package {{modelNamePlural}}
+ */
+class {{modelName}}Request extends Request
+{
+    /**
+     * @return array
+     */
+    public function validateToIndex(): array
+    {
+        return [
+            // Allowed properties to filter:
+            // 'name' => '',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function validateToStore(): array
+    {
+        return [
+            // Property rules to update ex:
+            // 'name' => 'required|string',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function validateToUpdate(): array
+    {
+        return [
+            // Property rules to update ex:
+            // 'name' => 'string',
+        ];
+    }
+}

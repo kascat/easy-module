@@ -1,0 +1,82 @@
+<?php
+
+namespace {{modelNamePlural}};
+
+use App\Http\Controllers\Controller;
+
+/**
+ * Class {{modelName}}Controller
+ * @package {{modelNamePlural}}
+ */
+class {{modelName}}Controller extends Controller
+{
+    use {{modelName}}Response;
+
+    /** @var {{modelName}}Service */
+    private {{modelName}}Service ${{modelNameSingularLowerCase}}Service;
+
+    /**
+     * {{modelName}}Controller constructor.
+     * @param {{modelName}}Service ${{modelNameSingularLowerCase}}Service
+     */
+    public function __construct({{modelName}}Service ${{modelNameSingularLowerCase}}Service)
+    {
+        $this->{{modelNameSingularLowerCase}}Service = ${{modelNameSingularLowerCase}}Service;
+    }
+
+    /**
+     * @param {{modelName}}Request $request
+     * @return mixed
+     */
+    public function index({{modelName}}Request $request): mixed
+    {
+        $result = $this->{{modelNameSingularLowerCase}}Service->index($request->validated());
+
+        return $this->response($result['response'], $result['status']);
+    }
+
+    /**
+     * @param {{modelName}}Request $request
+     * @return mixed
+     */
+    public function store({{modelName}}Request $request): mixed
+    {
+        $result = $this->{{modelNameSingularLowerCase}}Service->store($request->validated());
+
+        return $this->response($result['response'], $result['status']);
+    }
+
+    /**
+     * @param {{modelName}} ${{modelNameSingularLowerCase}}
+     * @return mixed
+     */
+    public function show({{modelName}} ${{modelNameSingularLowerCase}}): mixed
+    {
+        $result = $this->{{modelNameSingularLowerCase}}Service->show(${{modelNameSingularLowerCase}});
+
+        return $this->response($result['response'], $result['status']);
+    }
+
+    /**
+     * @param {{modelName}}Request $request
+     * @param {{modelName}} ${{modelNameSingularLowerCase}}
+     * @return mixed
+     */
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameSingularLowerCase}}): mixed
+    {
+        $result = $this->{{modelNameSingularLowerCase}}Service->update(${{modelNameSingularLowerCase}}, $request->validated());
+
+        return $this->response($result['response'], $result['status']);
+    }
+
+    /**
+     * @param {{modelName}} ${{modelNameSingularLowerCase}}
+     * @return mixed
+     */
+    public function destroy({{modelName}} ${{modelNameSingularLowerCase}}): mixed
+    {
+        $result = $this->{{modelNameSingularLowerCase}}Service->destroy(${{modelNameSingularLowerCase}});
+
+        return $this->response($result['response'], $result['status']);
+    }
+}
