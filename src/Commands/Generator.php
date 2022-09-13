@@ -20,6 +20,7 @@ class Generator extends Command
      * File type name map
      */
     const FILE_TYPES_SUFIXES = [
+        'console'    => 'console',
         'web'        => 'web',
         'api'        => 'api',
         'model'      => '__module__',
