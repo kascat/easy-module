@@ -57,11 +57,15 @@ Exemplo:
 },
 ```
 
-## Utilização
+## Criação de módulos
 
 Para criar um módulo completo basta executar o comando `php artisan easy:module [nome do módulo]`
 que irá gerar a estrutura padrão, porém o pacote **Easy Module** oferece uma lista de comandos,
 que auxiliam na criação da estrutura e dos arquivos do seu módulo separadamente.
+
+Os arquivos já são gerados com uma estrutura funcional de criação, leitura, edição, e exclusão
+(CRUD) para a tabela do seu banco de dados que está relacionada a _model_ do módulo,
+apenas será necessário configurar a _model_ e o _request_ com as propriedades da tabela.
 
 #### Comandos:
 
@@ -99,7 +103,8 @@ php artisan easy:command [nome do módulo]
 
 O mesmo comando pode ser executado mais de uma vez para um módulo,
 porém os arquivos que já existirem não serão substituídos,
-serão criados novos arquivos com um sufixo único que pode ser adequado posteriomente.
+serão criados novos arquivos com um sufixo único no nome,
+que podem ser adequados posteriormente.
 
 Para que aconteça a substituição de um arquivo existente rode o comando com a flag `--overwrite` ou `-O`
 
@@ -132,14 +137,45 @@ gerado com o comando: `php artisan easy:module sample`
 
 ### Responsabilidades
 
-Abaixo segue a descrição da responsabilidade de cada arquivo e detalhes da sua utilização.
+Abaixo segue a descrição da responsabilidade de cada arquivo.
 
 #### Model
 
 O arquivo/classe model segue o mesmo padrão/estrutura das models originais do Laravel,
-realizando a comunicação com a tabela do seu banco de dados.
+se comunicando com a tabela do seu banco de dados, e realizando a definição
+das propriedades e relacionamentos normalmente.
 
-O nome do arquivo/classe recebe o nome do módulo no singular, ex: `User.php` `User::class`
+O nome do arquivo e da classe recebe o nome do módulo no singular, ex: `User.php` `User::class`
 
 #### Controller
 
+O arquivo de controller também se comporta da mesma forma que as controllers tradicionais,
+ficando responsável em conter as funções que as rotas chamarão. Porém, com o diferencial
+de validar as requisições e formatar as respostas com uso dos arquivos apropriados (Request e Response).
+
+#### Request
+
+Utilizado para realizar as validações dos dados recebidos das requisições de cada rota.
+
+#### Response
+
+Utilizado para realizar formatações ou modificações nos dados de resposta da rota.
+
+#### Repository
+
+O repository tem somente a responsabilidade de montar as _queries_ que serão executadas do banco de dados.
+
+#### Service
+
+O service fica com a responsabilidade de conter a lógica principal (regra de negócio) do módulo.
+
+#### Api e Web
+
+Os arquivos de rota `api.php` e `web.php` são utilizados para registrar as rotas do módulo,
+da mesma forma que são definidas nos arquivos `routes/api.php` e `routes/web.php` do Laravel.
+
+#### Console
+
+O arquivo `console.php` é utilizado para criar comandos personalizados para a aplicação relacionado ao módulo,
+e pode ser utilizado da mesma forma que o arquivo `routes/console.php` do Laravel,
+podendo ser programado normalmente em `app/Console/Kernel.php`.
