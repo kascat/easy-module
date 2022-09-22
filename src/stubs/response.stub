@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Easy Module library
+ * Packagist: https://packagist.org/packages/kascat/easy-module
+ * GitHub: https://github.com/kascat/easy-module
+ */
+
 namespace {{modelNamePlural}};
 
 use Kascat\EasyModule\Core\Response;
