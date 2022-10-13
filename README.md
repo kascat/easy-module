@@ -179,3 +179,4 @@ da mesma forma que são definidas nos arquivos `routes/api.php` e `routes/web.ph
 O arquivo `console.php` é utilizado para criar comandos personalizados para a aplicação relacionado ao módulo,
 e pode ser utilizado da mesma forma que o arquivo `routes/console.php` do Laravel,
 podendo ser agendado normalmente em `app/Console/Kernel.php`.
+
