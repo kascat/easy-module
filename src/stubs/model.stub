@@ -1,34 +1,30 @@
 <?php
 
-/**
- * Easy Module library
- * Packagist: https://packagist.org/packages/kascat/easy-module
- * GitHub: https://github.com/kascat/easy-module
- */
-
 namespace {{modelNamePlural}};
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class {{modelName}}
- * @package {{modelNamePlural}}
+ * @property int         $id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  */
 class {{modelName}} extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = '{{modelNamePluralLowerCase}}';
+    const ID = 'id';
+    // Enter other property constants here, example: const NAME = 'name';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        //
+    const TABLE = '{{modelNamePluralLowerCase}}';
+
+    protected $table = self::TABLE;
+
+    protected $guarded = [
+        self::ID,
+        self::CREATED_AT,
+        self::UPDATED_AT,
     ];
 }

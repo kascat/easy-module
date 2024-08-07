@@ -21,13 +21,13 @@ use Illuminate\Support\Str;
 trait Response
 {
     /**
-     * @param $data
+     * @param mixed $data
      * @param int $statusCode
      * @param array $headers
      * @param int $options
      * @return mixed
      */
-    public function response($data = [], int $statusCode = \Illuminate\Http\Response::HTTP_OK, array $headers = [], $options = 0)
+    public function response(mixed $data = [], int $statusCode = 200, array $headers = [], $options = 0)
     {
         $method = "responseTo" . Str::ucfirst(request()->route()->getActionMethod());
 

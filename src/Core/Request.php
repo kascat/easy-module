@@ -15,7 +15,6 @@ namespace Kascat\EasyModule\Core;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
 /**
@@ -65,7 +64,7 @@ class Request extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(
-            response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY)
+            response()->json($validator->errors(), 422)
         );
     }
 }

@@ -1,39 +1,21 @@
 <?php
 
-/**
- * Easy Module library
- * Packagist: https://packagist.org/packages/kascat/easy-module
- * GitHub: https://github.com/kascat/easy-module
- */
-
 namespace {{modelNamePlural}};
 
 use App\Http\Controllers\Controller;
 
 /**
  * Class {{modelName}}Controller
- * @package {{modelNamePlural}}
  */
 class {{modelName}}Controller extends Controller
 {
     use {{modelName}}Response;
 
-    /** @var {{modelName}}Service */
-    private {{modelName}}Service ${{modelNameSingularLowerCase}}Service;
-
-    /**
-     * {{modelName}}Controller constructor.
-     * @param {{modelName}}Service ${{modelNameSingularLowerCase}}Service
-     */
-    public function __construct({{modelName}}Service ${{modelNameSingularLowerCase}}Service)
+    public function __construct(private readonly {{modelName}}Service ${{modelNameSingularLowerCase}}Service)
     {
-        $this->{{modelNameSingularLowerCase}}Service = ${{modelNameSingularLowerCase}}Service;
+        //
     }
 
-    /**
-     * @param {{modelName}}Request $request
-     * @return mixed
-     */
     public function index({{modelName}}Request $request): mixed
     {
         $result = $this->{{modelNameSingularLowerCase}}Service->index($request->validated());
@@ -41,10 +23,6 @@ class {{modelName}}Controller extends Controller
         return $this->response($result['response'], $result['status']);
     }
 
-    /**
-     * @param {{modelName}}Request $request
-     * @return mixed
-     */
     public function store({{modelName}}Request $request): mixed
     {
         $result = $this->{{modelNameSingularLowerCase}}Service->store($request->validated());
@@ -52,10 +30,6 @@ class {{modelName}}Controller extends Controller
         return $this->response($result['response'], $result['status']);
     }
 
-    /**
-     * @param {{modelName}} ${{modelNameSingularLowerCase}}
-     * @return mixed
-     */
     public function show({{modelName}} ${{modelNameSingularLowerCase}}): mixed
     {
         $result = $this->{{modelNameSingularLowerCase}}Service->show(${{modelNameSingularLowerCase}});
@@ -63,11 +37,6 @@ class {{modelName}}Controller extends Controller
         return $this->response($result['response'], $result['status']);
     }
 
-    /**
-     * @param {{modelName}}Request $request
-     * @param {{modelName}} ${{modelNameSingularLowerCase}}
-     * @return mixed
-     */
     public function update({{modelName}}Request $request, {{modelName}} ${{modelNameSingularLowerCase}}): mixed
     {
         $result = $this->{{modelNameSingularLowerCase}}Service->update(${{modelNameSingularLowerCase}}, $request->validated());
@@ -75,10 +44,6 @@ class {{modelName}}Controller extends Controller
         return $this->response($result['response'], $result['status']);
     }
 
-    /**
-     * @param {{modelName}} ${{modelNameSingularLowerCase}}
-     * @return mixed
-     */
     public function destroy({{modelName}} ${{modelNameSingularLowerCase}}): mixed
     {
         $result = $this->{{modelNameSingularLowerCase}}Service->destroy(${{modelNameSingularLowerCase}});
