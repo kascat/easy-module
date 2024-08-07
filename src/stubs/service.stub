@@ -1,65 +1,41 @@
 <?php
 
-/**
- * Easy Module library
- * Packagist: https://packagist.org/packages/kascat/easy-module
- * GitHub: https://github.com/kascat/easy-module
- */
-
 namespace {{modelNamePlural}};
 
 use Kascat\EasyModule\Core\Service;
 
 /**
  * Class {{modelName}}Service
- * @package {{modelNamePlural}}
  */
 class {{modelName}}Service extends Service
 {
-    /**
-     * @param array $filters
-     * @return array
-     */
     public function index(array $filters): array
     {
-        ${{modelNamePluralLowerCase}}Query = {{modelName}}Repository::index($filters);
+        ${{modelNamePluralLowerCase}}Query = {{modelName}}Repository::defautFiltersQuery($filters);
 
         return self::buildReturn(
             ${{modelNamePluralLowerCase}}Query
-                ->with(\request()->with ?? [])
-                ->paginate(\request()->perPage)
+                ->with(\request(self::WITH_RELATIONSHIP) ?? [])
+                ->paginate(\request(self::PER_PAGE))
         );
     }
 
-    /**
-     * @param {{modelName}} ${{modelNameSingularLowerCase}}
-     * @return array
-     */
     public function show({{modelName}} ${{modelNameSingularLowerCase}}): array
     {
         return self::buildReturn(
             ${{modelNameSingularLowerCase}}
-                ->load(\request('with') ?? [])
+                ->load(\request(self::WITH_RELATIONSHIP) ?? [])
                 ->toArray()
         );
     }
 
-    /**
-     * @param array $data
-     * @return array
-     */
     public function store(array $data): array
     {
-        ${{modelNameSingularLowerCase}} = {{modelName}}::create($data);
+        ${{modelNameSingularLowerCase}} = {{modelName}}::query()->create($data);
 
         return self::buildReturn(${{modelNameSingularLowerCase}});
     }
 
-    /**
-     * @param {{modelName}} ${{modelNameSingularLowerCase}}
-     * @param array $data
-     * @return array
-     */
     public function update({{modelName}} ${{modelNameSingularLowerCase}}, array $data): array
     {
         ${{modelNameSingularLowerCase}}->update($data);
@@ -67,10 +43,6 @@ class {{modelName}}Service extends Service
         return self::buildReturn(${{modelNameSingularLowerCase}});
     }
 
-    /**
-     * @param {{modelName}} ${{modelNameSingularLowerCase}}
-     * @return array
-     */
     public function destroy({{modelName}} ${{modelNameSingularLowerCase}}): array
     {
         ${{modelNameSingularLowerCase}}->delete();

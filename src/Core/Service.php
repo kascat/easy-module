@@ -12,9 +12,6 @@
 
 namespace Kascat\EasyModule\Core;
 
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\Response;
-
 /**
  * Class Service
  * @package Kascat\EasyModule\Core
@@ -23,16 +20,22 @@ class Service
 {
     use Utils;
 
+    const RESPONSE = 'response';
+    const HTTP_STATUS = 'status';
+
+    const WITH_RELATIONSHIP = 'with';
+    const PER_PAGE = 'perPage';
+
     /**
-     * @param $response
-     * @param int $statusCode
+     * @param mixed $response
+     * @param int $httpStatus
      * @return array
      */
-    protected static function buildReturn($response = [], int $statusCode = Response::HTTP_OK): array
+    protected static function buildReturn(mixed $response = [], int $httpStatus = 200): array
     {
         return [
-            'response' => $response,
-            'status'   => $statusCode
+            self::RESPONSE => $response,
+            self::HTTP_STATUS => $httpStatus,
         ];
     }
 }

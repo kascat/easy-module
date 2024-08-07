@@ -1,51 +1,35 @@
 <?php
 
-/**
- * Easy Module library
- * Packagist: https://packagist.org/packages/kascat/easy-module
- * GitHub: https://github.com/kascat/easy-module
- */
-
 namespace {{modelNamePlural}};
 
 use Kascat\EasyModule\Core\Request;
 
 /**
  * Class {{modelName}}Request
- * @package {{modelNamePlural}}
  */
 class {{modelName}}Request extends Request
 {
-    /**
-     * @return array
-     */
     public function validateToIndex(): array
     {
         return [
-            // Allowed properties to filter:
-            // 'name' => '',
+            // Allowed properties to filter, ex:
+            // {{modelName}}::NAME => 'string',
         ];
     }
 
-    /**
-     * @return array
-     */
     public function validateToStore(): array
     {
         return [
-            // Property rules to update ex:
-            // 'name' => 'required|string',
+            // Property rules to store, ex:
+            // {{modelName}}::NAME => 'required|string',
         ];
     }
 
-    /**
-     * @return array
-     */
     public function validateToUpdate(): array
     {
         return [
-            // Property rules to update ex:
-            // 'name' => 'string',
+            // Property rules to update, ex:
+            // {{modelName}}::NAME => 'string',
         ];
     }
 }

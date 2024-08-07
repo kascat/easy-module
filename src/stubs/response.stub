@@ -1,31 +1,19 @@
 <?php
 
-/**
- * Easy Module library
- * Packagist: https://packagist.org/packages/kascat/easy-module
- * GitHub: https://github.com/kascat/easy-module
- */
-
 namespace {{modelNamePlural}};
 
+use Illuminate\Http\JsonResponse;
 use Kascat\EasyModule\Core\Response;
 
 /**
  * Response interceptor
- *
  * Trait {{modelName}}Response
- * @package {{modelNamePlural}}
  */
 trait {{modelName}}Response
 {
     use Response;
 
-    /**
-     * @param mixed $data
-     * @param int $statusCode
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function responseToIndex($data = [], int $statusCode = 200)
+    public function responseToIndex(mixed $data = [], int $statusCode = 200): JsonResponse
     {
         return response()->json($data, $statusCode);
     }
