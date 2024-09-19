@@ -1,10 +1,10 @@
 # Easy Module
 
-[![Latest Stable Version](http://poser.pugx.org/kascat/easy-module/v)](https://packagist.org/packages/kascat/easy-module)
-[![Total Downloads](http://poser.pugx.org/kascat/easy-module/downloads)](https://packagist.org/packages/kascat/easy-module)
-[![Latest Unstable Version](http://poser.pugx.org/kascat/easy-module/v/unstable)](https://packagist.org/packages/kascat/easy-module)
-[![License](http://poser.pugx.org/kascat/easy-module/license)](https://packagist.org/packages/kascat/easy-module)
-[![PHP Version Require](http://poser.pugx.org/kascat/easy-module/require/php)](https://packagist.org/packages/kascat/easy-module)
+[![Latest Stable Version](https://poser.pugx.org/kascat/easy-module/v)](https://packagist.org/packages/kascat/easy-module)
+[![Total Downloads](https://poser.pugx.org/kascat/easy-module/downloads)](https://packagist.org/packages/kascat/easy-module)
+[![Latest Unstable Version](https://poser.pugx.org/kascat/easy-module/v/unstable)](https://packagist.org/packages/kascat/easy-module)
+[![License](https://poser.pugx.org/kascat/easy-module/license)](https://packagist.org/packages/kascat/easy-module)
+[![PHP Version Require](https://poser.pugx.org/kascat/easy-module/require/php)](https://packagist.org/packages/kascat/easy-module)
 
 Estrutura modular para o framework Laravel.
 
