@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * Easy Module library
+ * Packagist: https://packagist.org/packages/kascat/easy-module
+ * GitHub: https://github.com/kascat/easy-module
+ */
+
 use Illuminate\Support\Facades\Route;
+use {{modelNamePlural}}\{{modelName}}Controller;
 
 Route::group([
     // 'middleware' => ['auth:sanctum']
 ], function () {
-    Route::resource('{{modelNamePluralLowerCase}}', {{modelNamePlural}}\{{modelName}}Controller::class);
+    Route::resource('{{modelNamePluralLowerCase}}', {{modelName}}Controller::class);
 });
