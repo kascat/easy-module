@@ -16,7 +16,7 @@ podendo ser implementado em projetos novos e em andamento.
 
 ---
 
-## Instalação
+## Instalação e configuração
 
 Para instalar o pacote **Easy Module** basta seguir os três passos a seguir:
 
@@ -26,7 +26,13 @@ Para instalar o pacote **Easy Module** basta seguir os três passos a seguir:
 composer require "kascat/easy-module"
 ```
 
-#### 2. Adicione a classe abaixo na sessão `providers` do arquivo `config/app.php`
+#### 2. Configuração do Provider
+
+O Provider do **Easy Module** disponibiliza alguns comandos artisan para auxiliar na criação dos módulos,
+além de fazer a leitura automática das rotas mapeadas nos arquivos `api.php` e `web.php` em cada módulo,
+e dos comandos personalizados no arquivo `console.php` (caso opte em adicionar no seu módulo).
+
+Para isso, adicione a classe abaixo na sessão `providers` do arquivo `config/app.php`.
 
 ```php
 Kascat\EasyModule\Core\ModularServiceProvider::class
@@ -38,6 +44,25 @@ Exemplo:
     // ...Outros providers existentes
 
     Kascat\EasyModule\Core\ModularServiceProvider::class
+]
+```
+
+Porém, se optar em fazer o mapeamento de rotas e comandos personalisados de outra maneira,
+e não quiser que o **Easy Module** faça esse trabalho,
+adicione a classe abaixo na sessão `providers` do arquivo `config/app.php`.
+
+```php
+Kascat\EasyModule\Core\ModularCommandServiceProvider::class
+```
+
+Essa classe libera apenas os comandos artisan do **Easy Module**, para auxiliar na criação dos módulos.
+
+Exemplo:
+```php
+'providers' => [
+    // ...Outros providers existentes
+
+    Kascat\EasyModule\Core\ModularCommandServiceProvider::class
 ]
 ```
 
@@ -176,7 +201,6 @@ da mesma forma que são definidas nos arquivos `routes/api.php` e `routes/web.ph
 
 #### Console
 
-O arquivo `console.php` é utilizado para criar comandos personalizados para a aplicação relacionado ao módulo,
+O arquivo `console.php` é utilizado para criar comandos personalizados relacionados ao módulo,
 e pode ser utilizado da mesma forma que o arquivo `routes/console.php` do Laravel,
 podendo ser agendado normalmente em `app/Console/Kernel.php`.
-
